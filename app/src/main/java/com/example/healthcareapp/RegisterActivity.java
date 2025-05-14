@@ -10,11 +10,8 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class RegisterActivity2 extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     EditText edUsername, edEamil, edPassword, edConfirm;
     Button btn;
     TextView tv;
@@ -23,17 +20,17 @@ public class RegisterActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register2);
-        edUsername = findViewById(R.id.editTextRegUserName);
-        edPassword = findViewById(R.id.editTextRegPassword);
-        edEamil = findViewById(R.id.editTextRegEmail);
-        edConfirm = findViewById(R.id.editTextRegConfirmPassword);
-        btn = findViewById(R.id.buttonRegister);
+        setContentView(R.layout.activity_register);
+        edUsername = findViewById(R.id.editTextAppFullName);
+        edPassword = findViewById(R.id.editTextAppContactNumber);
+        edEamil = findViewById(R.id.editTextAppAddress);
+        edConfirm = findViewById(R.id.editTextAppFees);
+        btn = findViewById(R.id.buttonBookAppointment);
         tv = findViewById(R.id.textExistingUser);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity2.this, LoginActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
         btn.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +53,7 @@ public class RegisterActivity2 extends AppCompatActivity {
 
 
                             Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity2.this,LoginActivity.class));
+                            startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "password must contain at least 8 characters,having letter and digit", Toast.LENGTH_SHORT).show();
